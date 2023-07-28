@@ -1,0 +1,38 @@
+{
+  "name": "tars",
+  "version": "1.0.0",
+  "description": "TARS: AI-driven chatbot",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "build": "rimraf ./dist && tsc",
+    "dev": "cross-env NODE_ENV=development nodemon",
+    "start": "cross-env NODE_ENV=production npm run build && node ./dist/index.js"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npx pretty-quick --staged"
+    }
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.4.5",
+    "@types/node-telegram-bot-api": "^0.61.6",
+    "cross-env": "^7.0.3",
+    "husky": "^8.0.3",
+    "nodemon": "^3.0.1",
+    "prettier": "^3.0.0",
+    "pretty-quick": "^3.1.3",
+    "rimraf": "^5.0.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.1.6"
+  },
+  "dependencies": {
+    "axios": "^1.4.0",
+    "dotenv": "^16.3.1",
+    "node-telegram-bot-api": "^0.61.0",
+    "openai": "^3.3.0"
+  }
+}
