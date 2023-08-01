@@ -2,5 +2,6 @@
   "ignore": ["node_modules/"],
   "watch": ["src"],
   "exec": "ts-node ./src/index.ts",
-  "ext": "js,json,ts"
+  "ext": "js,json,ts",
+  "legacyWatch": true
 }
