@@ -23,8 +23,6 @@ CMD ["node", "dist/index.js"]
 
 FROM base AS development
 
-RUN npm install -g nodemon
-
 CMD ["npm", "run", "dev"]
 
 
