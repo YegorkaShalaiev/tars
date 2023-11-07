@@ -1,18 +1,18 @@
-import TelegramBot, { Message } from 'node-telegram-bot-api';
+import Telegraf, { Context } from 'telegraf'
+
 import OpenAI from "./OpenAI.js";
 
-export default class Tars extends TelegramBot {
+export default class Tars extends Telegraf {
     private api: OpenAI;
 
     constructor(token: string) {
-        super(token, {polling: true});
+        super(token);
 
         this.api = new OpenAI(process.env.OPENAI_API_KEY);
     }
 
-    async answer(msg: Message) {
-        const chatId: number = msg.chat.id;
-        const message: string = msg.text ?? '';
+    async answer(ctx: Context) {
+        const message: string = ctx.message?.text ?? '';
 
         let response;
 
@@ -23,6 +23,6 @@ export default class Tars extends TelegramBot {
             response = `An error has been occured: ${err.message}`;
         }
 
-        await this.sendMessage(chatId, response);
+        await ctx.reply(response);
     }
 }
